@@ -34,3 +34,52 @@ $(document).ready(function() {
         alert("Let's begin " + players[0].playerName);
         $("form#players").fadeOut(3000);
       });
+
+            //here's where the game will be able to compute the values
+
+            /* let's start with player one's code
+             the roll and hold buttons */
+            $("button#die1").click(function() {
+              var die = Math.floor(Math.random() * (6)) + 1;
+              $("h2#die-count").text(die);
+
+              if (die === 1) {
+                $("div#player2-roll").fadeIn();
+                $("div#player1-roll").fadeOut();
+
+                holdNum = [];
+                $("h4#hold-total1").text("0");
+                alert(players[1].playerName + " your turn!")
+              } else {
+                holdNum.push(die);
+                var total = holdNum.reduce(function(total, countNumber) {
+                  return total + countNumber;
+                });
+                $("h4#hold-total1").text(total);
+              }
+            });
+
+            $("button#hold1").click(function() {
+              var total = holdNum.reduce(function(total, countNumber) {
+                return total + countNumber;
+              })
+              players[0].rollScore.push(total);
+              var score = players[0].rollScore.reduce(function(total, countNumber) {
+                return total + countNumber;
+              });
+              players[0].total = score;
+              $("h2#score1").text(score);
+
+              $("div#player2-roll").fadeIn(3000);
+              $("div#player1-roll").fadeOut(3000);
+
+              alert(players[1].playerName + " your turn!");
+
+              if (score >= 100) {
+                alert(players[0].playerName + " wins!!!");
+                $("div#player1-roll").fadeOut(3000);
+                $("div#player2-roll").fadeOut(3000);
+                $("form#players").fadeIn(5000);
+              }
+
+            });
