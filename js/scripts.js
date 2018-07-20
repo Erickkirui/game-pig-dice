@@ -9,7 +9,7 @@ function Player(name) {
 
 var holdNum = [];
 
-//User Interface Logic
+//User Logic
 $(document).ready(function() {
       $("div#player1-roll").hide();
       $("div#player2-roll").hide();
@@ -20,7 +20,7 @@ $(document).ready(function() {
         var playerTwo = $("input#player2").val();
 
 
-        //console.log(playerOne);
+        //console.log.
 
         var newPlayerOne = new Player(playerOne);
         var newPlayerTwo = new Player(playerTwo);
@@ -35,10 +35,7 @@ $(document).ready(function() {
         $("form#players").fadeOut(3000);
       });
 
-            //here's where the game will be able to compute the values
 
-            /* let's start with player one's code
-             the roll and hold buttons */
             $("button#die1").click(function() {
               var die = Math.floor(Math.random() * (6)) + 1;
               $("h2#die-count").text(die);
@@ -58,7 +55,7 @@ $(document).ready(function() {
                 $("h4#hold-total1").text(total);
               }
             });
-
+//player 1
             $("button#hold1").click(function() {
               var total = holdNum.reduce(function(total, countNumber) {
                 return total + countNumber;
@@ -83,9 +80,7 @@ $(document).ready(function() {
               }
 
             });
-            //PLAYER TWO LOGIC
-      /* then we can deal with player two's code from here
-      it's goig to deal with the hold and roll */
+      //player 2
       $("button#die2").click(function() {
         var die = Math.floor(Math.random() * (6)) + 1;
         $("h2#die-count").text(die);
@@ -128,5 +123,6 @@ $(document).ready(function() {
                 $("form#players").fadeIn(5000);
               }
 
-            }); //end of document User Interface Logic
+            });
       })
+      
