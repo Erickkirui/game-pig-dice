@@ -1,3 +1,10 @@
-h1{
+.background{
   text-align: center;
+  background-image: url("/home/erick/Documents/IP-4/images/dice.jpg");
+  padding-bottom: 250px;
+  padding-top: 100px;
+ width: 100%;
+}
+h1{
+  color: white;
 }
