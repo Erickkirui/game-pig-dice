@@ -5,9 +5,17 @@
   padding-top: 100px;
 }
 h1{
-  color: blue;
-  text-shadow:
-}
+  color: red;
+  font-size: 35px;
+  font-family: serif;
+  }
 #player{
   color: blue;
+}
+.red{
+  padding-left: 500px;
+}
+#player-2-roll{
+    padding-left: 50px;
+
 }
