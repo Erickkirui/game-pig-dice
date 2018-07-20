@@ -83,3 +83,24 @@ $(document).ready(function() {
               }
 
             });
+            //PLAYER TWO LOGIC
+      /* then we can deal with player two's code from here
+      it's goig to deal with the hold and roll */
+      $("button#die2").click(function() {
+        var die = Math.floor(Math.random() * (6)) + 1;
+        $("h2#die-count").text(die);
+        if (die === 1) {
+          $("div#player1-roll").fadeIn();
+          $("div#player2-roll").fadeOut();
+
+          holdNum = [];
+          $("h4#hold-total2").text("0");
+          alert(players[0].playerName + " your turn!");
+        } else {
+          holdNum.push(die);
+          var total = holdNum.reduce(function(total, countNumber) {
+            return total + countNumber;
+          });
+          $("h4#hold-total2").text(total);
+        }
+      });
